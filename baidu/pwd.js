@@ -2291,8 +2291,10 @@ function(b) {
 })
 };
 
-function enbdpwd(pubkey, pwd) {
-var n = new passport.lib.RSA;
+function enbdpwd(pwd) {
+    var pubkey = '-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDEA0P+y1I6I2XcyR0Aoqr8NhfB\nEuoWpxWvf9aB+SS\/cx9JKTXiyZ3jMoCSPfqsAKEQSc52kGC1moqtf9dI\/CKhF78q\nMoUw84QDqhgjiWq2exyZiHe\/H229tGkOgVYXmGfGNybXDMv+E5SptonWmjrAK0Ij\n21wwKQt5kOnX8UAL0wIDAQAB\n-----END PUBLIC KEY-----\n';
+    var n = new passport.lib.RSA;
     n.setKey(pubkey);
-return escapeSymbol(n.encrypt(pwd));
+    // return pubkey
+    return escapeSymbol(n.encrypt(pwd));
 };
